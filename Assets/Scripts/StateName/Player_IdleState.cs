@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class Player_IdleState : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+public class Player_IdleState : EntityState {
+    public Player_IdleState(Player player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName) {
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+    public override void Update() {
+        base.Update();
+
+        if (player.inputVector != Vector2.zero) {
+            stateMachine.ChangeState(player.moveState);
+        }
+
     }
 }

@@ -1,24 +1,31 @@
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public class EntityState {
+public abstract class EntityState {
+    protected Player player;
     protected StateMachine stateMachine;
-    protected string stateName;
+    protected string animBoolName;
 
-    public EntityState(StateMachine stateMachine, string stateName) {
+    private Animator anim;
+
+    public EntityState(Player player, StateMachine stateMachine, string stateName) {
+        this.player = player;
         this.stateMachine = stateMachine;
-        this.stateName = stateName;
+        this.animBoolName = stateName;
+
+
+        anim = player.animator;
     }
 
     public virtual void Enter() {
-        Logger.Log($"Enter: {stateName}");
+        anim.SetBool(animBoolName, true);
     }
 
     public virtual void Update() {
-        Logger.Log($"Update: {stateName}");
+        Logger.Log($"Update: {animBoolName}");
     }
 
     public virtual void Exit() {
-        Logger.Log($"Exit: {stateName}");
+        anim.SetBool(animBoolName, false);
     }
 }
