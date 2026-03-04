@@ -1,0 +1,10 @@
+Order in layer [Player: 5]
+# GRID
+Non-collision High : Don't collide + above the player [order in layer : 10] (E.g. Trees crown which should hide the player from back)
+Non-Collision Low : Below the player [order in layer: 0] and also don't collide (E.g decoration like grass which should be step on by player)
+Collision High : collide + above the player [order in layer : 10] (E.g Back building which hide the player from back) 
+Collision Low : Below the player [order in layer: 0] and also collide. (E.g building front which should be hidden by player from front)
+
+High means
+
+# GRID
